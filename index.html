@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Sync Check — audio caption review</title>
+  <style>
+    :root{--bg:#090b14;--surface:#101522;--surface2:#151b2b;--line:#293149;--text:#f1f5ff;--muted:#95a0bb;--cyan:#4fe5e3;--violet:#aa84ff;--green:#79efb3;--red:#ff729d;--yellow:#ffd778;--shadow:0 24px 70px #0008}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% -10%,#362261 0,transparent 35%),radial-gradient(circle at 85% 0%,#063b4c 0,transparent 29%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.42}button:focus-visible,input:focus-visible,.cue:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}.shell{width:min(1240px,calc(100% - 40px));margin:0 auto}.topbar{height:86px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:800;letter-spacing:-.04em}.logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#090b14;box-shadow:0 0 25px #4fe5e355}.top-right{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}main{padding:46px 0 70px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.hero{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}.hero h1{font-size:clamp(34px,5vw,62px);letter-spacing:-.065em;line-height:1.08;margin:9px 0 10px}.hero h1 span{color:var(--cyan)}.hero p{margin:0;color:var(--muted);max-width:650px}.hero-badge{white-space:nowrap;border:1px solid #4fe5e348;background:#4fe5e30a;color:var(--cyan);padding:10px 14px;border-radius:30px;font-size:12px;font-weight:700}.upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}.upload{position:relative;display:flex;min-height:128px;gap:17px;align-items:center;padding:23px;border:1px dashed #54617f;border-radius:18px;background:linear-gradient(130deg,#151b2bdb,#101522db);transition:.2s}.upload:hover,.upload.drag{border-color:var(--cyan);background:#18263a;transform:translateY(-2px)}.upload.loaded{border-style:solid;border-color:#4fe5e35c}.upload input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}.upload-icon{flex:none;width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#4fe5e316;color:var(--cyan);font-size:25px}.upload.audio-drop .upload-icon{background:#aa84ff18;color:var(--violet)}.upload-title{font-weight:800;font-size:16px}.upload-desc{font-size:13px;color:var(--muted);margin-top:3px}.upload-name{font-size:12px;color:var(--cyan);margin-top:7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:350px}.panel{background:linear-gradient(160deg,#171d2ddd,#101522ee);border:1px solid #ffffff15;border-radius:20px;box-shadow:var(--shadow)}.dashboard{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,.85fr);gap:16px;margin-bottom:24px}.player-panel{padding:23px 25px}.panel-label{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}.now-playing{font-size:18px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:10px 0 19px;min-height:27px}.player-line{display:flex;align-items:center;gap:13px}.play-btn{width:42px;height:42px;flex:none;border:0;border-radius:50%;background:var(--cyan);color:#07141c;font-weight:900;font-size:16px;box-shadow:0 0 21px #4fe5e345}.play-btn:hover:not(:disabled){filter:brightness(1.13)}.track-wrap{flex:1;min-width:0}.track{width:100%;accent-color:var(--cyan);cursor:pointer}.times{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}.speed{border:1px solid var(--line);border-radius:9px;background:#101827;color:var(--text);padding:8px 10px;font-size:12px;font-weight:800}.stats{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;text-align:center;padding:15px}.stat+.stat{border-left:1px solid var(--line)}.stat-num{font-size:28px;font-weight:850;letter-spacing:-.05em;line-height:1.2}.stat:nth-child(1) .stat-num{color:var(--violet)}.stat:nth-child(2) .stat-num{color:var(--green)}.stat:nth-child(3) .stat-num{color:var(--red)}.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700}.review{overflow:hidden}.review-top{padding:24px 26px 18px;border-bottom:1px solid #ffffff12}.review-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.review-heading h2{font-size:22px;letter-spacing:-.04em;margin:0}.review-heading p{font-size:13px;color:var(--muted);margin:4px 0 0}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:21px 0 8px}.progress-label strong{color:var(--cyan)}.progress-bar{height:6px;background:#2b344a;border-radius:99px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan));box-shadow:0 0 16px var(--cyan);transition:width .2s}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 26px;border-bottom:1px solid #ffffff12}.tabs{display:flex;gap:4px;flex-wrap:wrap}.tab{border:0;background:none;color:var(--muted);padding:8px 12px;border-radius:9px;font-size:12px;font-weight:700}.tab:hover,.tab.active{background:#4fe5e318;color:var(--cyan)}.toolbar-actions{display:flex;align-items:center;gap:8px}.small-btn{border:1px solid var(--line);background:#1b2234;color:var(--text);padding:8px 12px;border-radius:9px;font-size:12px;font-weight:700}.small-btn:hover:not(:disabled){border-color:var(--cyan)}.list{max-height:680px;overflow:auto;scrollbar-color:#485677 #111726}.cue{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:16px;padding:17px 25px;border-bottom:1px solid #ffffff0d;cursor:pointer;transition:background .15s;scroll-margin:12px}.cue:last-child{border-bottom:0}.cue:hover{background:#ffffff09}.cue.active{background:#4fe5e310;box-shadow:inset 3px 0 var(--cyan)}.cue.good{box-shadow:inset 3px 0 var(--green)}.cue.bad{box-shadow:inset 3px 0 var(--red)}.cue.active.good{background:#79efb30b}.cue.active.bad{background:#ff729d0b}.cue-index{color:#74819e;font-size:12px;font-variant-numeric:tabular-nums}.cue-time{color:var(--cyan);font:700 12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.015em;margin-bottom:5px}.cue-text{white-space:pre-line;color:#e8edfa;font-size:14px;line-height:1.45}.cue-meta{display:inline-block;color:#6f7d98;font-size:11px;margin-left:9px}.cue-actions{display:flex;gap:8px}.mark{width:37px;height:37px;border-radius:10px;border:1px solid #4f5a71;color:var(--muted);background:#1b2334;display:grid;place-items:center;font-size:20px;font-weight:700;line-height:1}.mark:hover{transform:translateY(-1px)}.mark.yes:hover,.mark.yes.selected{border-color:var(--green);background:#79efb326;color:var(--green)}.mark.no:hover,.mark.no.selected{border-color:var(--red);background:#ff729d25;color:var(--red)}.empty{padding:80px 25px;text-align:center;color:var(--muted)}.empty-icon{font-size:38px;margin-bottom:11px}.empty strong{display:block;color:var(--text);font-size:19px;margin-bottom:5px}.footer{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:19px 25px;border-top:1px solid #ffffff12;background:#0d1320}.footer-note{font-size:12px;color:var(--muted)}.save{border:0;border-radius:11px;background:linear-gradient(110deg,var(--cyan),#75bfff);color:#07131b;padding:12px 19px;font-weight:850;box-shadow:0 8px 23px #4fe5e329;white-space:nowrap}.save:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}.error{display:none;margin:0 0 20px;padding:13px 16px;border:1px solid #ff729d76;border-radius:11px;background:#ff729d12;color:#ffc2d4;font-size:13px}.error.show{display:block}.hint{color:#76839e;font-size:12px;margin-top:18px;text-align:center}.key{display:inline-block;border:1px solid #4b5672;border-radius:4px;padding:0 4px;color:#bac6dc;font:11px ui-monospace,monospace}
+    .stats{grid-template-columns:repeat(4,1fr)}.stat:nth-child(3) .stat-num{color:var(--yellow)}.stat:nth-child(4) .stat-num{color:var(--red)}.cue.issues{box-shadow:inset 3px 0 var(--yellow)}.cue.active.issues{background:#ffd7780b}.mark{width:auto;min-width:65px;padding:0 9px;font-size:12px;white-space:nowrap}.mark.sync:hover,.mark.sync.selected{border-color:var(--yellow);background:#ffd77820;color:var(--yellow)}.mark.stt:hover,.mark.stt.selected{border-color:var(--red);background:#ff729d25;color:var(--red)}.cue-details{grid-column:2 / 4;display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:-1px}.detail-label{color:var(--muted);font-size:11px;font-weight:700}.detail-btn{border:1px solid var(--line);background:#1b2334;color:var(--muted);padding:5px 9px;border-radius:7px;font-size:11px}.detail-btn.selected{border-color:var(--yellow);color:var(--yellow);background:#ffd77815}.note-input{flex:1;min-width:180px;border:1px solid var(--line);background:#0d1421;color:var(--text);padding:8px 10px;border-radius:8px;font-size:12px}.note-input::placeholder{color:#75819a}.note-input:focus{border-color:var(--cyan)}
+    @media(max-width:800px){.hero{align-items:start;flex-direction:column}.dashboard{grid-template-columns:1fr}.stats{min-height:100px}.hero-badge{display:none}}
+    @media(max-width:600px){.shell{width:min(100% - 24px,1240px)}main{padding-top:30px}.topbar{height:70px}.upload-grid{grid-template-columns:1fr}.upload{min-height:100px;padding:18px}.review-top,.toolbar,.footer{padding-left:16px;padding-right:16px}.toolbar{align-items:start;flex-direction:column}.cue{grid-template-columns:23px minmax(0,1fr);gap:10px;padding:16px}.cue-actions,.cue-details{grid-column:2}.footer{align-items:stretch;flex-direction:column}.save{width:100%}.player-panel{padding:18px}.top-right{display:none}.stat-num{font-size:23px}.stat-label{font-size:9px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><div class="brand"><div class="logo" aria-hidden="true">≋</div>Sync Check</div><div class="top-right"><span class="live-dot"></span> Local review workspace</div></header>
+    <main>
+      <div class="hero"><div><div class="eyebrow">Caption quality control</div><h1>Hear it. Check it.<br><span>Ship it.</span></h1><p>Load a WebVTT transcript and its audio, listen to each timed segment, and mark whether the caption matches what you hear.</p></div><div class="hero-badge">✦ Your files stay in this browser</div></div>
+      <div class="upload-grid">
+        <label class="upload" id="vttDrop"><input type="file" id="vttInput" accept=".vtt,text/vtt" aria-label="Choose a VTT subtitle file"><span class="upload-icon" aria-hidden="true">▤</span><span><span class="upload-title">Load transcript</span><span class="upload-desc">Choose or drop a .vtt file</span><span class="upload-name" id="vttName">No file selected</span></span></label>
+        <label class="upload audio-drop" id="audioDrop"><input type="file" id="audioInput" accept=".m4a,audio/mp4,audio/x-m4a,audio/*" aria-label="Choose an M4A audio file"><span class="upload-icon" aria-hidden="true">♫</span><span><span class="upload-title">Load audio</span><span class="upload-desc">Choose or drop an .m4a file</span><span class="upload-name" id="audioName">No file selected</span></span></label>
+      </div>
+      <div class="error" id="error" role="alert"></div>
+      <div class="dashboard">
+        <section class="panel player-panel" aria-label="Audio player"><div class="panel-label">Now playing</div><div class="now-playing" id="nowPlaying">Load your files to start reviewing</div><div class="player-line"><button class="play-btn" id="playPause" aria-label="Play or pause" disabled>▶</button><div class="track-wrap"><input class="track" type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek audio" disabled><div class="times"><span id="currentTime">0:00</span><span id="totalTime">0:00</span></div></div><button class="speed" id="speed" title="Playback speed" disabled>1×</button></div><audio id="audio" preload="metadata"></audio></section>
+        <section class="panel stats" aria-label="Review statistics"><div class="stat"><div class="stat-num" id="totalCount">0</div><div class="stat-label">Segments</div></div><div class="stat"><div class="stat-num" id="matchCount">0</div><div class="stat-label">Passed</div></div><div class="stat"><div class="stat-num" id="syncCount">0</div><div class="stat-label">Sync issues</div></div><div class="stat"><div class="stat-num" id="sttCount">0</div><div class="stat-label">STT issues</div></div></section>
+      </div>
+      <section class="panel review" aria-label="Caption review">
+        <div class="review-top"><div class="review-heading"><div><h2>Segment review</h2><p id="reviewSubtitle">Your caption segments will appear here when both files are loaded.</p></div></div><div class="progress-label"><span>Review progress</span><strong id="progressText">0 / 0 reviewed</strong></div><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div></div>
+        <div class="toolbar"><div class="tabs" role="tablist" aria-label="Filter segments"><button class="tab active" data-filter="all" role="tab" aria-selected="true">All</button><button class="tab" data-filter="pending" role="tab" aria-selected="false">Unreviewed</button><button class="tab" data-filter="pass" role="tab" aria-selected="false">Passed</button><button class="tab" data-filter="sync" role="tab" aria-selected="false">Sync</button><button class="tab" data-filter="stt" role="tab" aria-selected="false">STT</button></div><div class="toolbar-actions"><button class="small-btn" id="nextPending" disabled>Next unreviewed →</button></div></div>
+        <div class="list" id="list"><div class="empty"><div class="empty-icon">◌</div><strong>Ready when you are</strong>Load a VTT file and M4A audio to see your timed segments.</div></div>
+        <div class="footer"><div class="footer-note" id="footerNote">Mark each segment Passed, Sync, or STT to unlock your CSV report.</div><button class="save" id="save" disabled>↓ Save report (CSV)</button></div>
+      </section>
+      <p class="hint">Tip: click a segment to play it. Press <span class="key">1</span> Passed, <span class="key">2</span> Sync, <span class="key">3</span> STT, or <span class="key">Space</span> to replay. Sync and STT can both apply.</p>
+    </main>
+  </div>
+  <script>
+  (() => {
+    const $ = id => document.getElementById(id);
+    const el = {vttInput:$('vttInput'),audioInput:$('audioInput'),vttName:$('vttName'),audioName:$('audioName'),vttDrop:$('vttDrop'),audioDrop:$('audioDrop'),error:$('error'),audio:$('audio'),playPause:$('playPause'),seek:$('seek'),speed:$('speed'),nowPlaying:$('nowPlaying'),currentTime:$('currentTime'),totalTime:$('totalTime'),totalCount:$('totalCount'),matchCount:$('matchCount'),syncCount:$('syncCount'),sttCount:$('sttCount'),reviewSubtitle:$('reviewSubtitle'),progressText:$('progressText'),progressFill:$('progressFill'),list:$('list'),nextPending:$('nextPending'),footerNote:$('footerNote'),save:$('save')};
+    let cues=[],vttFile=null,audioFile=null,audioUrl=null,selected=-1,filter='all',segmentEnd=null;
+    const speeds=[1,1.25,1.5,.75];let speedIndex=0;
+    function timecode(seconds,precision=false){if(!Number.isFinite(seconds))return '0:00';const h=Math.floor(seconds/3600),m=Math.floor(seconds%3600/60),s=Math.floor(seconds%60),ms=Math.round((seconds%1)*1000);return (h?String(h).padStart(2,'0')+':':'')+String(m).padStart(h?2:1,'0')+':'+String(s).padStart(2,'0')+(precision?'.'+String(ms).padStart(3,'0'):'')}
+    function parseTimestamp(value){const match=value.trim().match(/^(?:(\d{2,}):)?(\d{2}):(\d{2})[.,](\d{3})$/);if(!match)return null;const h=Number(match[1]||0),m=Number(match[2]),s=Number(match[3]);if(m>59||s>59)return null;return h*3600+m*60+s+Number(match[4])/1000}
+    function captionText(raw){const withoutTags=raw.replace(/<[^>]*>/g,'');const entities={'&amp;':'&','&lt;':'<','&gt;':'>','&nbsp;':' ','&quot;':'"','&#39;':"'"};return withoutTags.replace(/&(?:amp|lt|gt|nbsp|quot|#39);|&#(\d+);|&#x([0-9a-f]+);/gi,(full,dec,hex)=>entities[full.toLowerCase()]??(dec?String.fromCodePoint(Number(dec)):hex?String.fromCodePoint(parseInt(hex,16)):full)).trim()}
+    function parseVtt(source){const text=source.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');if(!/^WEBVTT(?:[ \t].*)?(?:\n|$)/.test(text))throw new Error('This does not look like a WebVTT file. Please choose a .vtt file starting with WEBVTT.');const blocks=text.split(/\n[ \t]*\n+/);const parsed=[];for(const block of blocks){const lines=block.split('\n');let i=0;while(i<lines.length&&(!lines[i].includes('-->')))i++;if(i===lines.length)continue;if(/^\s*(NOTE|STYLE|REGION)(?:\s|$)/.test(lines[0]))continue;const timing=lines[i].match(/^\s*(\S+)\s*-->\s*(\S+)/);if(!timing)continue;const start=parseTimestamp(timing[1]),end=parseTimestamp(timing[2]);if(start===null||end===null||end<=start)continue;const raw=lines.slice(i+1).join('\n').trim();if(!raw)continue;parsed.push({start,end,startText:timing[1].replace(',','.'),endText:timing[2].replace(',','.'),text:captionText(raw),result:null,sync:false,stt:false,detail:'',note:''})}if(!parsed.length)throw new Error('No valid timed captions were found in this VTT file.');return parsed}
+    function showError(message){el.error.textContent=message;el.error.classList.toggle('show',!!message)}
+    function clearPlayback(){el.audio.pause();segmentEnd=null;selected=-1;el.playPause.textContent='▶';el.nowPlaying.textContent=audioFile?'Select a segment to listen':'Load your files to start reviewing'}
+    function ready(){return !!vttFile&&!!audioFile&&cues.length>0}
+    async function loadVtt(file){if(!file)return;try{const source=await file.text();const parsed=parseVtt(source);vttFile=file;cues=parsed;el.vttName.textContent=file.name;el.vttDrop.classList.add('loaded');showError('');clearPlayback();render()}catch(e){showError(e.message||'Could not read that VTT file.')}}
+    function loadAudio(file){if(!file)return;clearPlayback();if(audioUrl)URL.revokeObjectURL(audioUrl);audioFile=file;audioUrl=URL.createObjectURL(file);el.audio.src=audioUrl;el.audio.load();el.audioName.textContent=file.name;el.audioDrop.classList.add('loaded');el.playPause.disabled=false;el.seek.disabled=false;el.speed.disabled=false;showError('');render()}
+    el.vttInput.addEventListener('change',e=>loadVtt(e.target.files[0]));el.audioInput.addEventListener('change',e=>loadAudio(e.target.files[0]));
+    for(const [drop,handler] of [[el.vttDrop,loadVtt],[el.audioDrop,loadAudio]]){drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');const file=e.dataTransfer.files[0];if(file)handler(file)})}
+    async function playCue(index){if(!ready()||!cues[index])return;const cue=cues[index];selected=index;segmentEnd=cue.end;el.audio.currentTime=cue.start;el.nowPlaying.textContent=`Segment ${index+1} · ${cue.text.replace(/\n/g,' ')}`;try{await el.audio.play();el.playPause.textContent='Ⅱ'}catch(e){showError('Audio playback was blocked or this audio format is unsupported by your browser.')}renderList()}
+    function mark(index,value){
+      const cue=cues[index];if(!cue)return;selected=index;
+      if(value==='pass'){if(cue.result==='pass')cue.result=null;else{cue.result='pass';cue.sync=false;cue.stt=false;cue.detail='';cue.note=''}}
+      else{cue[value]=!cue[value];if(value==='sync'&&!cue.sync)cue.detail='';cue.result=cue.sync||cue.stt?'issues':null}
+      render();
+      const row=el.list.querySelector('[data-index="'+index+'"]');
+      const note=row&&row.querySelector('.note-input');
+      if(value!=='pass'&&cue.result==='issues'&&note)note.focus({preventScroll:true});
+      else if(row)row.focus({preventScroll:true});
+    }
+    function visible(index){const cue=cues[index];return filter==='all'||filter==='pending'&&cue.result===null||filter==='pass'&&cue.result==='pass'||filter==='sync'&&cue.sync||filter==='stt'&&cue.stt}
+    function renderList(){
+      el.list.replaceChildren();
+      if(!ready()){el.list.innerHTML='<div class="empty"><div class="empty-icon">◌</div><strong>Ready when you are</strong>Load a VTT file and M4A audio to see your timed segments.</div>';return}
+      let shown=0;
+      cues.forEach((cue,index)=>{
+        if(!visible(index))return;shown++;
+        const row=document.createElement('div');
+        row.className='cue'+(selected===index?' active':'')+(cue.result==='pass'?' good':cue.result==='issues'?' issues':'');
+        row.dataset.index=index;row.tabIndex=0;row.setAttribute('role','group');
+        row.setAttribute('aria-label','Segment '+(index+1)+': '+cue.text.replace(/\n/g,' '));
+        const num=document.createElement('span');num.className='cue-index';num.textContent=String(index+1).padStart(2,'0');
+        const body=document.createElement('div');
+        const stamp=document.createElement('div');stamp.className='cue-time';stamp.textContent=cue.startText+' → '+cue.endText;
+        const length=document.createElement('span');length.className='cue-meta';length.textContent=(cue.end-cue.start).toFixed(1)+'s';stamp.append(length);
+        const caption=document.createElement('div');caption.className='cue-text';caption.textContent=cue.text;body.append(stamp,caption);
+        const actions=document.createElement('div');actions.className='cue-actions';
+        for(const [value,label,cls,pressed] of [['pass','✓ Passed','yes',cue.result==='pass'],['sync','≋ Sync','sync',cue.sync],['stt','Aa STT','stt',cue.stt]]){
+          const button=document.createElement('button');button.className='mark '+cls+(pressed?' selected':'');button.type='button';button.textContent=label;
+          button.title=value==='sync'?'Timestamp or audio/text alignment issue':value==='stt'?'Speech-to-text transcription issue':'Caption matches audio';
+          button.setAttribute('aria-label',label+' for segment '+(index+1));button.setAttribute('aria-pressed',pressed?'true':'false');
+          button.addEventListener('click',e=>{e.stopPropagation();mark(index,value)});actions.append(button)
+        }
+        row.append(num,body,actions);
+        if(cue.result==='issues'){
+          const details=document.createElement('div');details.className='cue-details';
+          if(cue.sync){
+            const label=document.createElement('span');label.className='detail-label';label.textContent='Timing:';details.append(label);
+            for(const [value,name] of [['too_long','Too long'],['too_short','Too short'],['other','Other']]){
+              const button=document.createElement('button');button.type='button';button.className='detail-btn'+(cue.detail===value?' selected':'');button.textContent=name;
+              button.title=value==='too_long'?'Timestamp includes extra audio':value==='too_short'?'Timestamp cuts audio off':'Other alignment issue';
+              button.setAttribute('aria-pressed',cue.detail===value?'true':'false');
+              button.addEventListener('click',e=>{e.stopPropagation();cue.detail=cue.detail===value?'':value;renderList();el.list.querySelector('[data-index="'+index+'"] .note-input')?.focus({preventScroll:true})});
+              details.append(button)
+            }
+          }
+          const note=document.createElement('input');note.type='text';note.className='note-input';note.placeholder='Quick note: what is missing, extra, or misheard? (optional)';note.value=cue.note;note.setAttribute('aria-label','Issue note for segment '+(index+1));
+          note.addEventListener('input',()=>cue.note=note.value);note.addEventListener('click',e=>e.stopPropagation());details.append(note);row.append(details)
+        }
+        row.addEventListener('click',e=>{if(!e.target.closest('button,input'))playCue(index)});
+        row.addEventListener('keydown',e=>{if(e.target===row&&(e.key==='Enter'||e.key===' ')){e.preventDefault();playCue(index)}});
+        el.list.append(row)
+      });
+      if(!shown)el.list.innerHTML='<div class="empty"><div class="empty-icon">✧</div><strong>No segments here</strong>Try a different filter to view your captions.</div>'
+    }
+    function render(){
+      const total=cues.length,passed=cues.filter(c=>c.result==='pass').length,sync=cues.filter(c=>c.sync).length,stt=cues.filter(c=>c.stt).length,reviewed=cues.filter(c=>c.result!==null).length;
+      el.totalCount.textContent=total;el.matchCount.textContent=passed;el.syncCount.textContent=sync;el.sttCount.textContent=stt;
+      el.progressText.textContent=reviewed+' / '+total+' reviewed';el.progressFill.style.width=total?(reviewed/total*100)+'%':'0%';
+      el.reviewSubtitle.textContent=ready()?total+' timed segment'+(total===1?'':'s')+' from '+vttFile.name:'Your caption segments will appear here when both files are loaded.';
+      el.nextPending.disabled=!ready()||reviewed===total;el.save.disabled=!ready()||reviewed!==total;
+      el.footerNote.textContent=ready()?(reviewed===total?'All '+total+' segments reviewed. Your CSV report is ready.':(total-reviewed)+' segment'+(total-reviewed===1?'':'s')+' left to review before saving.'):'Mark each segment Passed, Sync, or STT to unlock your CSV report.';
+      renderList()
+    }
+    document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{filter=tab.dataset.filter;document.querySelectorAll('.tab').forEach(t=>{const active=t===tab;t.classList.toggle('active',active);t.setAttribute('aria-selected',active?'true':'false')});renderList()}));
+    el.nextPending.addEventListener('click',()=>{const start=selected>=0?selected+1:0;let index=cues.findIndex((c,i)=>i>=start&&c.result===null);if(index<0)index=cues.findIndex(c=>c.result===null);if(index>=0){if(filter!=='all'&&filter!=='pending')document.querySelector('[data-filter="all"]').click();playCue(index);requestAnimationFrame(()=>el.list.querySelector(`[data-index="${index}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}))}});
+    el.audio.addEventListener('loadedmetadata',()=>{el.totalTime.textContent=timecode(el.audio.duration);if(cues.length&&cues.some(c=>c.end>el.audio.duration+.1))showError('Some VTT timestamps run beyond the end of the audio. You can still review and export them.');});
+    el.audio.addEventListener('error',()=>showError('This audio file could not be played in this browser. Try another M4A file or a browser with M4A support.'));
+    el.audio.addEventListener('timeupdate',()=>{const t=el.audio.currentTime;el.currentTime.textContent=timecode(t);if(Number.isFinite(el.audio.duration)&&el.audio.duration>0)el.seek.value=Math.round(t/el.audio.duration*1000);if(segmentEnd!==null&&t>=segmentEnd-.025){el.audio.pause();el.audio.currentTime=segmentEnd;segmentEnd=null;el.playPause.textContent='▶'}});
+    el.audio.addEventListener('pause',()=>el.playPause.textContent='▶');el.audio.addEventListener('play',()=>el.playPause.textContent='Ⅱ');
+    el.playPause.addEventListener('click',()=>{if(el.audio.paused){if(selected>=0)playCue(selected);else el.audio.play().catch(()=>showError('Audio playback could not start.'))}else el.audio.pause()});
+    el.seek.addEventListener('input',()=>{if(!Number.isFinite(el.audio.duration))return;el.audio.currentTime=Number(el.seek.value)/1000*el.audio.duration;segmentEnd=null;selected=-1;el.nowPlaying.textContent='Full audio';renderList()});
+    el.speed.addEventListener('click',()=>{speedIndex=(speedIndex+1)%speeds.length;el.audio.playbackRate=speeds[speedIndex];el.speed.textContent=speeds[speedIndex]+'×'});
+    document.addEventListener('keydown',e=>{
+      if(e.altKey||e.ctrlKey||e.metaKey||e.target.matches('input,button'))return;
+      if(selected>=0&&['1','2','3'].includes(e.key)){e.preventDefault();mark(selected,{'1':'pass','2':'sync','3':'stt'}[e.key])}
+      else if(selected>=0&&e.code==='Space'){e.preventDefault();playCue(selected)}
+    });
+    function csv(value){return '"'+String(value).replace(/"/g,'""')+'"'}
+    el.save.addEventListener('click',()=>{
+      if(!ready()||cues.some(c=>!c.result))return;
+      const passed=cues.filter(c=>c.result==='pass').length,sync=cues.filter(c=>c.sync).length,stt=cues.filter(c=>c.stt).length,both=cues.filter(c=>c.sync&&c.stt).length;
+      const rows=[
+        ['Sync Check report'],['Transcript',vttFile.name],['Audio',audioFile.name],[],
+        ['Summary','Count'],['Total segments',cues.length],['Passed',passed],['Timestamp issues',sync],['STT quality issues',stt],['Both issues',both],[],
+        ['segment','start','end','text','result','timestamp_issue','timestamp_detail','stt_issue','note'],
+        ...cues.map((c,i)=>[i+1,c.startText,c.endText,c.text,c.result==='pass'?'passed':c.sync&&c.stt?'sync + STT':c.sync?'sync issue':'STT issue',c.sync?'yes':'no',c.sync?({'too_long':'too long','too_short':'too short','other':'other'}[c.detail]||''):'',c.stt?'yes':'no',c.note])
+      ];
+      const content='\uFEFF'+rows.map(row=>row.map(csv).join(',')).join('\r\n');
+      const blob=new Blob([content],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');link.href=url;link.download=(vttFile.name.replace(/\.vtt$/i,'')||'captions')+'-review.csv';
+      document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)
+    });
+  })();
+  </script>
+</body>
+</html>
